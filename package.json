@@ -9,10 +9,13 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf dist && cd ../notes-fe/ && npm run build && cp -r dist ../notes-be",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push origin main"
   },
   "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.2.1"
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.8.0"
   }
 }
